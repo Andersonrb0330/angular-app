@@ -1,0 +1,16 @@
+<h1>Listado de Paises</h1>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pais of data">
+            <td>{{pais.id}}</td>
+            <td>{{pais.nombre}}</td>
+        </tr>
+    </tbody>
+</table>

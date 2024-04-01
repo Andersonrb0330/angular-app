@@ -1,0 +1,11 @@
+<p>login works!</p>
+
+<form [formGroup]="formulario" (ngSubmit)="login()">
+    <label for="email">email:</label>
+    <input type="text" formControlName="email">
+    <br>
+    <label for="clave">clave:</label>
+    <input type="text" formControlName="clave">
+    <br>
+    <button type="submit">Logueo</button>
+</form>
