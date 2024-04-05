@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit  {
        alert("Email y Contraseña Incorrectas");
       } else {
         this.data = respuesta;
-        this.router.navigate(['/']);
+        this.router.navigate(['/producto']);
       }
     });
   }

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand link" (click)="navigateToLogin()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a  class="navbar-brand link" (click)="navigateToProducto()" onclick="cambiarColor()">Producto</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand link" (click)="navigateToPais()">Pais</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<h1>Listado de Paises</h1>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pais of data">
+            <td>{{pais.id}}</td>
+            <td>{{pais.nombre}}</td>
+        </tr>
+    </tbody>
+</table>

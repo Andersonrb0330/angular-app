@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand link" (click)="navigateToLogin()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a  class="navbar-brand link" (click)="navigateToProducto()" onclick="cambiarColor()">Producto</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand link" (click)="navigateToPais()">Pais</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-4">
+      <form [formGroup]="ProductoFormulario">
+        <fieldset>
+          <legend>Filtros</legend>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" formControlName="nombre">
+            </div>
+            <div class="col-md-6">
+              <label for="descripcion" class="form-label">Descripción:</label>
+              <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+            </div>
+            <div class="mb-3">
+              <label for="tipoProducto" class="form-label">Tipo de Producto:</label>
+              <select class="form-select" id="tipoProducto" formControlName="tipoProducto">
+                <option value="">Selecciona..</option>
+                <option *ngFor="let tipo of tiposProducto" [value]="tipo.id">{{ tipo.nombre }}</option>
+              </select>
+            </div>
+            <div class="col-md-6 align-self-center">
+              <label for="estado" class="form-label">Estado:</label>
+              <div class="form-check form-switch ms-3">
+                <input class="form-check-input" type="checkbox" id="estado" formControlName="estado">
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12 d-flex justify-content-center">
+              <button type="button" class="btn btn-danger mx-2">Limpiar</button>
+              <button type="submit" class="btn btn-success mx-2">Buscar</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 mt-4">
+        <fieldset>
+          <legend>Resultado</legend>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Stock</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of data">
+                  <td>{{ producto.id }}</td>
+                  <td>{{ producto.nombre }}</td>
+                  <td>{{ producto.descripcion }}</td>
+                  <td>{{ producto.stock }}</td>
+                  <td>{{ producto.estado }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+  
+  

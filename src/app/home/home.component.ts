@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../service/api.service';
-import { PaisModel } from '../models/pais.model';
+
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,21 +10,18 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
 
-  data: PaisModel[] = [];
+export class HomeComponent{
+  constructor(private router: Router) { }
 
-  constructor(private apiService:  ApiService) {
-
-  }
-  ngOnInit(): void {
-   this.llevarData();
+  navigateToProducto() {
+    this.router.navigate(['/producto']);
   }
 
-  llevarData(){
-    this.apiService.getData().subscribe(respuesta => {
-      this.data = respuesta;
-      console.log(this.data);
-    })
+  navigateToPais() {
+    this.router.navigate(['/pais']);
+  }
+  navigateToLogin() {
+    this.router.navigate(['/login']);
   }
 }
